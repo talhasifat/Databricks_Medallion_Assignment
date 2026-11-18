@@ -1,0 +1,152 @@
+{
+  "seed": 20261119,
+  "rows_per_file": 1000000,
+  "orders": {
+    "row_count": 1000000,
+    "inventory": [
+      {
+        "category": "case_and_whitespace",
+        "field": "category",
+        "count": 7633,
+        "approx_percent": 0.7633
+      },
+      {
+        "category": "duplicate_exact_or_key",
+        "field": "order_id",
+        "count": 2000,
+        "approx_percent": 0.2
+      },
+      {
+        "category": "duplicate_key",
+        "field": "order_id",
+        "count": 18000,
+        "approx_percent": 1.8
+      },
+      {
+        "category": "invalid_future_timestamp",
+        "field": "order_date",
+        "count": 8849,
+        "approx_percent": 0.8849
+      },
+      {
+        "category": "invalid_status",
+        "field": "order_status",
+        "count": 7299,
+        "approx_percent": 0.7299
+      },
+      {
+        "category": "invalid_text_type",
+        "field": "quantity",
+        "count": 9900,
+        "approx_percent": 0.99
+      },
+      {
+        "category": "invalid_text_type",
+        "field": "unit_price",
+        "count": 9345,
+        "approx_percent": 0.9345
+      },
+      {
+        "category": "invalid_timestamp",
+        "field": "order_date",
+        "count": 7874,
+        "approx_percent": 0.7874
+      },
+      {
+        "category": "negative_or_out_of_range",
+        "field": "quantity",
+        "count": 9708,
+        "approx_percent": 0.9708
+      },
+      {
+        "category": "negative_or_out_of_range",
+        "field": "unit_price",
+        "count": 9174,
+        "approx_percent": 0.9174
+      },
+      {
+        "category": "null_or_blank",
+        "field": "country",
+        "count": 7194,
+        "approx_percent": 0.7194
+      },
+      {
+        "category": "null_or_blank",
+        "field": "customer_id",
+        "count": 10309,
+        "approx_percent": 1.0309
+      }
+    ]
+  },
+  "transactions": {
+    "row_count": 1000000,
+    "inventory": [
+      {
+        "category": "case_and_whitespace",
+        "field": "txn_status",
+        "count": 7874,
+        "approx_percent": 0.7874
+      },
+      {
+        "category": "duplicate_exact_or_key",
+        "field": "txn_id",
+        "count": 2000,
+        "approx_percent": 0.2
+      },
+      {
+        "category": "duplicate_key",
+        "field": "txn_id",
+        "count": 18000,
+        "approx_percent": 1.8
+      },
+      {
+        "category": "invalid_future_timestamp",
+        "field": "txn_ts",
+        "count": 7633,
+        "approx_percent": 0.7633
+      },
+      {
+        "category": "invalid_status_or_label",
+        "field": "payment_method",
+        "count": 8849,
+        "approx_percent": 0.8849
+      },
+      {
+        "category": "invalid_text_type",
+        "field": "amount",
+        "count": 11235,
+        "approx_percent": 1.1235
+      },
+      {
+        "category": "invalid_timestamp",
+        "field": "txn_ts",
+        "count": 7299,
+        "approx_percent": 0.7299
+      },
+      {
+        "category": "negative_or_out_of_range",
+        "field": "amount",
+        "count": 10309,
+        "approx_percent": 1.0309
+      },
+      {
+        "category": "null_or_blank",
+        "field": "txn_id",
+        "count": 12048,
+        "approx_percent": 1.2048
+      },
+      {
+        "category": "orphan_reference",
+        "field": "order_id",
+        "count": 7194,
+        "approx_percent": 0.7194
+      },
+      {
+        "category": "unsupported_currency",
+        "field": "currency",
+        "count": 9345,
+        "approx_percent": 0.9345
+      }
+    ]
+  }
+}

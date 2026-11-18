@@ -1,0 +1,73 @@
+{
+  "name": "ecom_medallion_assignment",
+  "timeout_seconds": 7200,
+  "max_concurrent_runs": 1,
+  "tasks": [
+    {
+      "task_key": "bronze",
+      "notebook_task": {
+        "notebook_path": "notebooks/bronze_ingestion",
+        "base_parameters": {
+          "CATALOG": "workspace",
+          "SCHEMA": "ecom_poc",
+          "RAW_VOLUME": "raw_files",
+          "BATCH_ID": "batch-20261119-001"
+        }
+      },
+      "job_cluster_key": "shared",
+      "timeout_seconds": 3600,
+      "retry_on_timeout": false
+    },
+    {
+      "task_key": "silver",
+      "depends_on": [{"task_key": "bronze"}],
+      "notebook_task": {
+        "notebook_path": "notebooks/silver_cleaning",
+        "base_parameters": {
+          "CATALOG": "workspace",
+          "SCHEMA": "ecom_poc"
+        }
+      },
+      "job_cluster_key": "shared",
+      "timeout_seconds": 3600,
+      "retry_on_timeout": false
+    },
+    {
+      "task_key": "gold",
+      "depends_on": [{"task_key": "silver"}],
+      "notebook_task": {
+        "notebook_path": "notebooks/gold_models",
+        "base_parameters": {
+          "CATALOG": "workspace",
+          "SCHEMA": "ecom_poc"
+        }
+      },
+      "job_cluster_key": "shared",
+      "timeout_seconds": 3600,
+      "retry_on_timeout": false
+    }
+  ],
+  "job_clusters": [
+    {
+      "job_cluster_key": "shared",
+      "new_cluster": {
+        "spark_version": "16.4.x-scala2.12",
+        "num_workers": 0,
+        "data_security_mode": "SINGLE_USER"
+      }
+    }
+  ],
+  "schedule": null,
+  "email_notifications": {
+    "on_failure": [],
+    "on_success": [],
+    "no_alert_for_skipped_runs": false
+  },
+  "settings": {
+    "retry_settings": {
+      "max_retries": 2,
+      "min_retry_interval_millis": 300000,
+      "retry_on_timeout": false
+    }
+  }
+}
